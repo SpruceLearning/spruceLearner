@@ -27,9 +27,9 @@ public class Lessons {
     public static Map<String, LessonItem> LESSON_ITEM_MAP = new HashMap<String, LessonItem>();
 
     static {
-        addItem(new LessonItem("1", "一元一次方程"));
-        addItem(new LessonItem("2", "椭圆的画法"));
-        addItem(new LessonItem("3", "二元一次方程"));
+        addItem(new LessonItem("0", "一元一次方程"));
+        addItem(new LessonItem("1", "椭圆的画法"));
+        addItem(new LessonItem("2", "二元一次方程"));
     }
 
     private static void addItem(LessonItem item) {

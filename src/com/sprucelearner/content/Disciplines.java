@@ -28,9 +28,9 @@ public class Disciplines {
     public static Map<String, DisciplineItem> DISP_ITEM_MAP = new HashMap<String, DisciplineItem>();
 
     static {
-        addItem(new DisciplineItem("1", "高一（上）数学"));
-        addItem(new DisciplineItem("2", "高一（上）语文"));
-        addItem(new DisciplineItem("3", "高一（上）英语"));
+        addItem(new DisciplineItem("0", "高一（上）数学"));
+        addItem(new DisciplineItem("1", "高一（上）语文"));
+        addItem(new DisciplineItem("2", "高一（上）英语"));
     }
 
     private static void addItem(DisciplineItem item) {
