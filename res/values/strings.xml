@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">spruceLearner</string>
+    <string name="title_course_detail">Course Detail</string>
+    <string name="title_course_list">Courses</string>
+    <string name="title_course_l2list">Courses L2List</string>
+    <string name="unzip">Unzip</string>
+
+</resources>
