@@ -1,6 +1,8 @@
 package com.sprucelearner;
 
-
+/**
+ * @author qiumin
+ */
 import com.sprucelearner.content.Disciplines;
 
 import android.R;
@@ -10,6 +12,7 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 
 public class CourseListFragment extends ListFragment {
 
@@ -36,7 +39,7 @@ public class CourseListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter<Disciplines.DisciplineItem>(getActivity(),
-                R.layout.simple_list_item_activated_1,
+                R.layout.simple_list_item_activated_1,     //layout to be changed here
                 R.id.text1,
                Disciplines.DISP_ITEMS));
     }

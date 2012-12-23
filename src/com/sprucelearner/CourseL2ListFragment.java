@@ -1,7 +1,13 @@
 package com.sprucelearner;
 
+/**
+ * @author qiumin
+ */
+import java.util.List;
 
+import com.sprucelearner.content.Disciplines;
 import com.sprucelearner.content.Lessons;
+import com.sprucelearner.content.Lessons.LessonItem;
 
 import android.R;
 import android.app.Activity;
@@ -20,6 +26,8 @@ public class CourseL2ListFragment extends ListFragment {
     private Callbacks nCallbacks = sLessonCallbacks;
     private int mActivatedPosition = ListView.INVALID_POSITION;
 
+    private Disciplines.DisciplineItem dItem;
+    private List<LessonItem> lessonList;
     public interface Callbacks {
 
         public void onItemSelected(String id);
@@ -37,10 +45,21 @@ public class CourseL2ListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments().containsKey(ARG_ITEM_ID)) {
+            dItem = Disciplines.DISP_ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+        }
+        int id = Integer.parseInt(dItem.id);
+        switch(id){
+        	case 0: lessonList = Lessons.LESSON_ITEMS_0; break;
+        	case 1: lessonList = Lessons.LESSON_ITEMS_1; break;
+        	case 2: lessonList = Lessons.LESSON_ITEMS_2; break;
+        	default: lessonList = Lessons.LESSON_ITEMS_0;
+        }
+        
         setListAdapter(new ArrayAdapter<Lessons.LessonItem>(getActivity(),
-                R.layout.simple_list_item_activated_1,
+                R.layout.simple_list_item_activated_1,    // Layout to be changed here
                 R.id.text1,
-                Lessons.LESSON_ITEMS));
+                lessonList));
     }
 
     @Override
@@ -71,10 +90,15 @@ public class CourseL2ListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(listView, view, position, id);
+        switch(Integer.parseInt(dItem.id)){
+        	case 0:  break;
+        	case 1: position = position + 3; break;
+        	case 2: position = position + 4; break;
+        	default: 
+        }
         Intent detailIntent = new Intent(this.getActivity(), CourseDetailActivity.class);
         detailIntent.putExtra(CourseDetailFragment.ARG_ITEM_ID, Integer.toString(position));
         startActivity(detailIntent);
-    //    nCallbacks.onItemSelected(Lessons.LESSON_ITEMS.get(position).id);
     }
 
     @Override

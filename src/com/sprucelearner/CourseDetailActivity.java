@@ -1,4 +1,7 @@
 package com.sprucelearner;
+/**
+ * @author qiumin
+ */
 
 
 import android.content.Intent;
@@ -30,15 +33,6 @@ public class CourseDetailActivity extends FragmentActivity {
                     .commit();
         }
         VideoView mvd =(VideoView)this.findViewById(R.id.vplay);
-//      //定义MediaController对象  
-//        MediaController mediaController = new MediaController(this.getApplicationContext());  
-//        //把MediaController对象绑定到VideoView上  
-//        mediaController.setAnchorView(mvd);  
-//        //设置VideoView的控制器是mediaController  
-//        mvd.setMediaController(mediaController);  
-//        mvd.requestFocus();
-//        mvd.start();   
-       
     }
 
     @Override

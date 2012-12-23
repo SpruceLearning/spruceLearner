@@ -1,4 +1,7 @@
 package com.sprucelearner.unzip;
+/**
+ * @author qiumin
+ */
 
 
 import android.util.Log; 
@@ -8,10 +11,7 @@ import java.io.FileOutputStream;
 import java.util.zip.ZipEntry; 
 import java.util.zip.ZipInputStream; 
 
-/** 
-* 
-* @author qiumin 
-*/ 
+
 public class UnzipUtil { 
  private String _zipFile; 
  private String _location; 

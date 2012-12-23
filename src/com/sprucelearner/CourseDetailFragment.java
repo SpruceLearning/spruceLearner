@@ -1,4 +1,7 @@
 package com.sprucelearner;
+/**
+ * @author qiumin
+ */
 
 import com.sprucelearner.content.Lessons;
 import com.sprucelearner.content.Lessons.LessonItem;
@@ -16,6 +19,7 @@ public class CourseDetailFragment extends Fragment {
 
     public static final String ARG_ITEM_ID = "item_id";
     private VideoView mvd;
+    private String path;
     
     Lessons.LessonItem mItem;
 
@@ -36,7 +40,9 @@ public class CourseDetailFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_course_detail, container, false);
         if (mItem != null) {
             VideoView mvd = (VideoView)rootView.findViewById(R.id.vplay);
-            mvd.setVideoURI(Uri.parse("/sdcard/course1.mp4"));             
+       //     path = "android.resource://" + this.getActivity().getPackageName() +"/"+"R.raw.course"+mItem.id+".mp3";
+            path = "/sdcard/course"+mItem.id+".mp4";
+            mvd.setVideoURI(Uri.parse(path));             
           MediaController mediaController = new MediaController(this.getActivity());  
           mediaController.setAnchorView(mvd);  
           mediaController.setPadding(0,0,0,0);          
