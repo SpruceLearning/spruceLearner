@@ -4,9 +4,11 @@
     <string name="title_course_detail">Course Detail</string>
     <string name="title_course_list">Courses</string>
     <string name="title_course_l2list">Courses L2List</string>
+    <string name="title_test">Test</string>
     <string name="unzip">Unzip</string>
     <string name="course_name_0">yiyuanyicifangcheng</string>
     <string name="course_name_1">tuoyuandehuafa</string>
     <string name="course_name_2">yuxiandingli</string>
+    <string name="action_bar_search">search</string>
 
 </resources>

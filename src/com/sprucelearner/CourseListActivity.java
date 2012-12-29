@@ -2,20 +2,30 @@ package com.sprucelearner;
 /** 
  * @author qiumin
  */
+
+
+
+import android.app.ActionBar;
+import android.app.FragmentTransaction;
+import android.app.ActionBar.Tab;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CourseListActivity extends FragmentActivity
-        implements CourseListFragment.Callbacks, CourseL2ListFragment.Callbacks {
+        implements CourseListFragment.Callbacks, CourseL2ListFragment.Callbacks, OnQueryTextListener {
 
     private boolean mTwoPane;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
-
         if (findViewById(R.id.course_l2list) != null) {
             mTwoPane = true;
             ((CourseListFragment) getSupportFragmentManager()
@@ -23,6 +33,7 @@ public class CourseListActivity extends FragmentActivity
                     .setActivateOnItemClick(true);
         }
     }
+
 
     @Override
     public void onItemSelected(String id) {
@@ -41,4 +52,27 @@ public class CourseListActivity extends FragmentActivity
             startActivity(l2listIntent);
         }
     }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.actions, menu);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setOnQueryTextListener(this);
+        return true;
+    }
+
+
+	@Override
+	public boolean onQueryTextChange(String newText) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean onQueryTextSubmit(String query) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

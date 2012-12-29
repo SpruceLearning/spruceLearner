@@ -3,21 +3,26 @@ package com.sprucelearner;
  * @author qiumin
  */
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import com.sprucelearner.content.Lessons;
 import com.sprucelearner.content.Lessons.LessonItem;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-public class CourseDetailFragment extends Fragment {
+public class TestFragment extends Fragment {
 
     public static final String ARG_ITEM_ID = "item_id";
     private VideoView mvd;
@@ -25,7 +30,7 @@ public class CourseDetailFragment extends Fragment {
     
     Lessons.LessonItem mItem;
 
-    public CourseDetailFragment() {
+    public TestFragment() {
     }
 
     @Override
@@ -39,20 +44,27 @@ public class CourseDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_course_detail, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_test, container, false);
         if (mItem != null) {
-            VideoView mvd = (VideoView)rootView.findViewById(R.id.vplay);
+            ImageView img = (ImageView)rootView.findViewById(R.id.iview);
        //     path = "android.resource://" + this.getActivity().getPackageName() +"/"+"R.raw.course"+mItem.id+".mp3";
-            path = Environment.getExternalStorageDirectory()+"/videos/course"+mItem.id+".mp4";
-            Log.i("Path:", path);
-            mvd.setVideoURI(Uri.parse(path));             
-          MediaController mediaController = new MediaController(this.getActivity());  
-          mediaController.setAnchorView(mvd);  
-          mediaController.setPadding(0,0,0,0);          
-          mvd.setMediaController(mediaController);  
-          mvd.requestFocus();
-          mvd.start();  
+            path = "/sdcard/course"+mItem.id+".jpg";
+            
+            Bitmap bitmap = getLoacalBitmap(path); 
+            img.setImageBitmap(bitmap); 
+            
         }
           return rootView;
+    }
+    
+    public  Bitmap getLoacalBitmap(String url) {
+        try {
+             FileInputStream fis = new FileInputStream(url);
+             return BitmapFactory.decodeStream(fis);         
+
+          } catch (Exception e) {
+             e.printStackTrace();
+             return null;
+        }
     }
 }

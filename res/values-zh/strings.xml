@@ -4,8 +4,10 @@
     <string name="title_course_detail">视频学习</string>
     <string name="title_course_list">云杉课堂</string>
     <string name="title_course_l2list">详细课程列表</string>
+    <string name="title_test">测试题</string>
     <string name="unzip">Unzip</string>
 	<string name="course_name_0">一元一次方程</string>
     <string name="course_name_1">椭圆的画法</string>
     <string name="course_name_2">余弦定理</string>
+    <string name="action_bar_search">搜索</string>
 </resources>

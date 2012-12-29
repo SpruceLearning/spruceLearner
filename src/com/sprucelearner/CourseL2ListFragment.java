@@ -53,7 +53,7 @@ public class CourseL2ListFragment extends ListFragment {
         	case 0: lessonList = Lessons.LESSON_ITEMS_0; break;
         	case 1: lessonList = Lessons.LESSON_ITEMS_1; break;
         	case 2: lessonList = Lessons.LESSON_ITEMS_2; break;
-        	default: lessonList = Lessons.LESSON_ITEMS_0;
+        	default: lessonList = Lessons.LESSON_ITEMS_3;
         }
         
         setListAdapter(new ArrayAdapter<Lessons.LessonItem>(getActivity(),
@@ -92,13 +92,19 @@ public class CourseL2ListFragment extends ListFragment {
         super.onListItemClick(listView, view, position, id);
         switch(Integer.parseInt(dItem.id)){
         	case 0:  break;
-        	case 1: position = position + 3; break;
-        	case 2: position = position + 4; break;
-        	default: 
+        	case 1: position = position + 5; break;
+        	case 2: position = position + 8; break;
+        	default: position = 9;
         }
-        Intent detailIntent = new Intent(this.getActivity(), CourseDetailActivity.class);
-        detailIntent.putExtra(CourseDetailFragment.ARG_ITEM_ID, Integer.toString(position));
-        startActivity(detailIntent);
+        if (position == 2 || position == 3 || position == 6 || position == 7 ){
+        Intent imgIntent = new Intent(this.getActivity(), TestActivity.class);
+        imgIntent.putExtra(TestFragment.ARG_ITEM_ID, Integer.toString(position));
+        startActivity(imgIntent);
+        }else{
+        	Intent detailIntent = new Intent(this.getActivity(), CourseDetailActivity.class);
+            detailIntent.putExtra(CourseDetailFragment.ARG_ITEM_ID, Integer.toString(position));
+            startActivity(detailIntent);
+        }
     }
 
     @Override

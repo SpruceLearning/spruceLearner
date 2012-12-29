@@ -34,6 +34,12 @@ public class Disciplines {
         addItem(new DisciplineItem("0", "高一（上）数学"));
         addItem(new DisciplineItem("1", "高一（上）语文"));
         addItem(new DisciplineItem("2", "高一（上）英语"));
+        addItem(new DisciplineItem("3", "高一（上）物理"));
+        addItem(new DisciplineItem("4", "高一（上）化学"));
+        addItem(new DisciplineItem("5", "高一（上）生物"));
+        addItem(new DisciplineItem("6", "高一（上）政治"));
+        addItem(new DisciplineItem("7", "高一（上）历史"));
+        addItem(new DisciplineItem("8", "高一（上）地理"));
     }
 
     private static void addItem(DisciplineItem item) {

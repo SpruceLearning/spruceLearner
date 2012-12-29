@@ -34,6 +34,13 @@
                 android:value=".CourseL2ListActivity" />
         </activity>
         <activity
+            android:name=".TestActivity"
+            android:label="@string/title_test" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TestActivity" />
+        </activity>
+        <activity
             android:name=".UnzipActivity"
             android:label="@string/unzip">
         
